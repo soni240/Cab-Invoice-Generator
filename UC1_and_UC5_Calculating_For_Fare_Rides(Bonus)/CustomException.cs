@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CabInvoiceGenerator
+namespace UC1_and_UC5_Calculating_For_Fare_Rides_Bonus_
 {
-    //custom Exception-Invalid Distance,Invalid Time
     public class CustomException:Exception
     {
         public ExceptionType type;
@@ -14,7 +13,7 @@ namespace CabInvoiceGenerator
 
         public enum ExceptionType
         {
-            INVALID_DISTANCE, INVALID_TIME, NULL_RIDES, INVALID_USER_ID
+            INVALID_DISTANCE, INVALID_TIME
         }
         public CustomException(ExceptionType type, string message) : base(message)
         {
