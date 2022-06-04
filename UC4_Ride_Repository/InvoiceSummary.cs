@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UC2_andUC3_Multiple_Rides
+namespace UC4_Ride_Repository
 {
     public class InvoiceSummary
     {
@@ -20,3 +20,4 @@ namespace UC2_andUC3_Multiple_Rides
         }
     }
 }
+

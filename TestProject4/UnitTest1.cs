@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace TestProject3
+namespace TestProject4
 {
     public class Tests
     {
@@ -60,7 +60,7 @@ namespace TestProject3
             }
         }
         /// <summary>
-        /// UC1&UC5-Handling the custom exception if time is negative number or zero.
+        /// UC1andUC5-Handling the custom exception if time is negative number or zero.
         /// </summary>
         [TestMethod]
         [TestCategory("CalculatingFare")]
@@ -118,6 +118,23 @@ namespace TestProject3
             InvoiceSummary summary = new InvoiceSummary(2, 55.0);
             InvoiceSummary expected = invoice.CalculateFare(rides);
             Assert.AreEqual(summary.numOfRides, expected.numOfRides);
+        }
+        /// <summary>
+        /// UC4-Adding the data in the list correponding userid and rides
+        /// </summary>
+        [TestMethod]
+        public void Given_UserId_Return_Fare()
+        {
+            Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 1) };
+            RideRepository rideRepository = new RideRepository();
+            rideRepository.AddRide(1, rides);
+            rideRepository.AddRide(2, rides);
+            var rideArray = rideRepository.GetRides(1);
+            InvoiceGenerator invoice = new InvoiceGenerator(RideType.NORMAL_RIDE);
+
+            InvoiceSummary summary = new InvoiceSummary(2, 30.0);
+            InvoiceSummary expected = invoice.CalculateFare(rideArray);
+            Assert.AreEqual(summary.totalFare, expected.totalFare);
         }
     }
 }
