@@ -1,11 +1,9 @@
 using NUnit.Framework;
 
-namespace TestProject2
+namespace TestProject3
 {
-    public class UnitTests1
+    public class Tests
     {
-        public object RideType { get; private set; }
-
         /// <summary>
         /// UC1-Return the total fare for normal ride
         /// </summary>
@@ -41,7 +39,7 @@ namespace TestProject2
 
         }
         /// <summary>
-        /// UC1andUC5-Handling the custom exception if distance is negative number or zero.
+        /// UC1&UC5-Handling the custom exception if distance is negative number or zero.
         /// </summary>
         [TestMethod]
         [TestCategory("CalculatingFare")]
@@ -82,6 +80,46 @@ namespace TestProject2
                 Assert.AreEqual(expected, ex.message);
             }
         }
+        /// <summary>
+        /// UC2-Returns the totlfare for multiple rides
+        /// </summary>
+        [TestMethod]
+        public void Return_Multiple_Rides_TotalFare()
+        {
+            InvoiceGenerator invoice = new InvoiceGenerator(RideType.PREMIUM_RIDE);
+            Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 1) };
+
+            InvoiceSummary summary = new InvoiceSummary(2, 55.0);
+            InvoiceSummary expected = invoice.CalculateFare(rides);
+            Assert.AreEqual(summary.totalFare, expected.totalFare);
+        }
+        /// <summary>
+        /// UC3-Returns the average ride
+        /// </summary>
+        [TestMethod]
+        public void Return_Multiple_Rides_AverageFare()
+        {
+            InvoiceGenerator invoice = new InvoiceGenerator(RideType.PREMIUM_RIDE);
+            Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 1) };
+
+            InvoiceSummary summary = new InvoiceSummary(2, 55.0);
+            InvoiceSummary expected = invoice.CalculateFare(rides);
+            Assert.AreEqual(summary.avgFare, expected.avgFare);
+        }
+        /// <summary>
+        /// UC3-returns the number of rides
+        /// </summary>
+        [TestMethod]
+        public void Return_Multiple_Rides_NumofRides()
+        {
+            InvoiceGenerator invoice = new InvoiceGenerator(RideType.PREMIUM_RIDE);
+            Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 1) };
+
+            InvoiceSummary summary = new InvoiceSummary(2, 55.0);
+            InvoiceSummary expected = invoice.CalculateFare(rides);
+            Assert.AreEqual(summary.numOfRides, expected.numOfRides);
+        }
     }
 }
+
     

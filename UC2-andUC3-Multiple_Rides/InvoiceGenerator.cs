@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UC1_and_UC5_Calculating_For_Fare_Rides_Bonus_
+namespace UC2_andUC3_Multiple_Rides
 {
-     class InvoiceGenerator
+    public class InvoiceGenerator
     {
         //Declaring ride Type
         RideType type;
@@ -62,6 +62,27 @@ namespace UC1_and_UC5_Calculating_For_Fare_Rides_Bonus_
                 Console.WriteLine(ex.message);
             }
             return Math.Max(totalFare, MINIMUM_FARE);
+        }
+        //Method to calculate the totalfare for multiple rides 
+        public InvoiceSummary CalculateFare(Ride[] rides)
+        {
+            double totalFare = 0;
+            try
+            {
+                if (rides == null)
+                {
+                    throw new CustomException(CustomException.ExceptionType.NULL_RIDES, "No rides found");
+                }
+                foreach (Ride ride in rides)
+                {
+                    totalFare += this.CalculateFare(ride.distance, ride.time);
+                }
+            }
+            catch (CustomException ex)
+            {
+                Console.WriteLine(ex.message);
+            }
+            return new InvoiceSummary(rides.Length, totalFare);
         }
     }
 }

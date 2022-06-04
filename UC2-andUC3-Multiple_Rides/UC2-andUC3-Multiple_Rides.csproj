@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
-    <RootNamespace>UC1_and_UC5_Calculating_For_Fare_Rides_Bonus_</RootNamespace>
+    <RootNamespace>UC2_andUC3_Multiple_Rides</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
