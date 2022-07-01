@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace TestProject1
+namespace TestProject4
 {
     public class Tests
     {
@@ -60,7 +60,7 @@ namespace TestProject1
             }
         }
         /// <summary>
-        /// UC1&UC5-Handling the custom exception if time is negative number or zero.
+        /// UC1andUC5-Handling the custom exception if time is negative number or zero.
         /// </summary>
         [TestMethod]
         [TestCategory("CalculatingFare")]

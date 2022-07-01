@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CabInvoiceGenerator
+namespace UC4_Ride_Repository
 {
-   public class RideRepository
-   {
+    public class RideRepository
+    {
         Dictionary<int, List<Ride>> userRides = null;
         public RideRepository()
         {
@@ -45,5 +45,5 @@ namespace CabInvoiceGenerator
     }
 }
 
-   
+    
 

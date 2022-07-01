@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CabInvoiceGenerator
+namespace UC4_Ride_Repository
 {
     //custom Exception-Invalid Distance,Invalid Time
     public class CustomException:Exception
